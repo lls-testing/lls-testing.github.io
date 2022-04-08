@@ -10,6 +10,27 @@
 <script src="https://raw.githack.com/AR-js-org/AR.js/ES6/aframe/build/aframe-ar-nft.js"></script>
 
 <script>
+  const event = new Event('event');
+  onorientationchange = (event) => {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    var isIOS = (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream);
+    var landscapeMode = window.innerHeight < window.innerWidth;
+    if(!isIOS)
+      landscapeMode = !landscapeMode;
+    //Landscape
+    if (landscapeMode)
+    {
+      document.getElementById('augmentedVideo').setAttribute('scale','-0.2 0.2 0.2')
+      document.getElementById('augmentedVideo').setAttribute('position','0 0 -70')
+    }
+    //Portrait
+    else {
+      document.getElementById('augmentedVideo').setAttribute('scale','-0.15 0.15 0.15')
+      document.getElementById('augmentedVideo').setAttribute('position','75 0 -125')
+    }
+    document.getElementById('vid').pause();
+    document.getElementById('vid').play();
+  };
   window.onload = function () {
     document
       .querySelector(".say-hi-button")
@@ -89,7 +110,7 @@
     <img src="../assets/speakerIcon.png" class="say-hi-button" />
   </div>
   <div class="arjs-loader">
-    <div>AR Erlebnis wird geladen</div>
+    <div>AR Erlebnis wird geladen ~v2.0 </div>
   </div>
   <a-scene
     vr-mode-ui="enabled: false;"
@@ -106,7 +127,6 @@
         loop
         crossorigin
         webkit-playsinline
-        autoplay
         muted
         playsinline
       ></video>
@@ -122,12 +142,14 @@
       smoothThreshold="5"
     >
       <a-video
+        id="augmentedVideo"
         src="#vid"
         position="75 0 -120"
         rotation="90 0 180"
         width="1280"
         height="720"
         scale="-0.15 0.15 0.15"
+        animation="property: scale; to: 0.5 0.5 0.5; dur: 1; autoplay: false; startEvents: event"
       >
       </a-video>
     </a-nft>
