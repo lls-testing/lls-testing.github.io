@@ -5,11 +5,38 @@
   />
 </head>
 
-<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+<script src="../assets/scripts/aframe-master.js"></script>
 
-<script src="https://raw.githack.com/AR-js-org/AR.js/ES6/aframe/build/aframe-ar-nft.js"></script>
+<script src="../assets/scripts/aframe-nft.js"></script>
 
 <script>
+  const event = new Event("event");
+  onorientationchange = (event) => {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    var isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+    var landscapeMode = window.innerHeight < window.innerWidth;
+    if (!isIOS) landscapeMode = !landscapeMode;
+    //Landscape
+    if (landscapeMode) {
+      document
+        .getElementById("augmentedVideo")
+        .setAttribute("scale", "-0.2 0.2 0.2");
+      document
+        .getElementById("augmentedVideo")
+        .setAttribute("position", "0 0 -70");
+    }
+    //Portrait
+    else {
+      document
+        .getElementById("augmentedVideo")
+        .setAttribute("scale", "-0.15 0.15 0.15");
+      document
+        .getElementById("augmentedVideo")
+        .setAttribute("position", "75 0 -125");
+    }
+    document.getElementById("vid").pause();
+    document.getElementById("vid").play();
+  };
   window.onload = function () {
     document
       .querySelector(".say-hi-button")
@@ -106,7 +133,6 @@
         loop
         crossorigin
         webkit-playsinline
-        autoplay
         muted
         playsinline
       ></video>

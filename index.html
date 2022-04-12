@@ -1,44 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main</title>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
   </head>
-  <body>
-    <a href="./html/DerKaiserVonAtlantis.html">
-      <button>Der Kaiser von Atlantis</button>
-    </a>
-    <a href="./html/DerNussknacker.html">
-      <button>Der Nussknacker</button>
-    </a>
-    <a href="./html/DieFledermaus.html">
-      <button>Die Fledermaus</button>
-    </a>
-    <a href="html/DieZauberfloete.html">
-      <button>Die Zauberföte</button>
-    </a>
-    <a href="./html/DonGiovanni.html">
-      <button>Don Giovanni</button>
-    </a>
-    <a href="./html/DonPasquale.html">
-      <button>Don Pasquale</button>
-    </a>
-    <a href="./html/Lammermoor.html">
-      <button>Lammermoor</button>
-    </a>
-    <a href="./html/LElisirDAmore.html">
-      <button>L'Elisir D'Amore</button>
-    </a>
-    <a href="./html/SaltWomb.html">
-      <button>SaltWomb</button>
-    </a>
-    <a href="./html/Siegfried.html">
-      <button>Siegfried</button>
-    </a>
-    <a href="./html/Turandot.html">
-      <button>Turandot</button>
-    </a>
+  <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+  <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+  <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+  <body style="margin: 0px; overflow: hidden">
+    <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+    >
+      <a-assets>
+        <video
+          src="../videos/Derkaiservonatlantis.m4v"
+          preload="auto"
+          id="vid"
+          response-type="arraybuffer"
+          loop
+          crossorigin
+          webkit-playsinline
+          muted
+          playsinline
+        ></video>
+      </a-assets>
+
+      <a-marker type="pattern" preset="custom" url="./pattern-qr-code.patt">
+        <a-video
+        src="#vid"
+        position="0 0 0"
+        rotation="90 0 180"
+        width="1280"
+        height="720"
+      >
+      </a-marker>
+
+      <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+      <a-entity camera></a-entity>
+    </a-scene>
   </body>
 </html>
