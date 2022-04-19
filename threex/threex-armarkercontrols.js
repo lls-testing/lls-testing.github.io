@@ -25,7 +25,7 @@ ARjs.MarkerControls = THREEx.ArMarkerControls = function(context, object3d, para
 		  // number of matrices to smooth tracking over, more = smoother but slower follow
 		  smoothCount: 10,
 		  // distance tolerance for smoothing, if smoothThreshold # of matrices are under tolerance, tracking will stay still
-		  smoothTolerance: 0.001,
+		  smoothTolerance: 1,
 		  // threshold for smoothing, will keep still unless enough matrices are over tolerance
 		  smoothThreshold: 4
 	}
