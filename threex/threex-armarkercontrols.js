@@ -19,6 +19,7 @@ ARjs.MarkerControls = THREEx.ArMarkerControls = function(context, object3d, para
 		barcodeValue : null,
 		// change matrix mode - [modelViewMatrix, cameraTransformMatrix]
 		changeMatrixMode : 'modelViewMatrix',
+		emitevents : true,
 		// minimal confidence in the marke recognition - between [0, 1] - default to 1
 		minConfidence: 0,
 		smooth: true,
