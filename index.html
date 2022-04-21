@@ -34,6 +34,8 @@ var arToolkitSource, arToolkitContext;
 var markerRoot1;
 
 var mesh1;
+	
+var markerControls1;
 
 initialize();
 animate();
@@ -112,7 +114,7 @@ function initialize()
 	// build markerControls
 	markerRoot1 = new THREE.Group();
 	scene.add(markerRoot1);
-	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
+	markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
 		type: 'pattern', patternUrl: "data/llstesting.patt",
 	})
 
@@ -162,14 +164,14 @@ function animate()
 	update();
 	render();
 }
-arMarkerControls.addEventListener(
+markerControls1.addEventListener(
   "markerFound",
   function () {
     document.getElementById('video').play();
   }.bind(this)
 );
 
-arMarkerControls.addEventListener(
+markerControls1.addEventListener(
   "markerLost",
   function () {
      document.getElementById('video').pause();
