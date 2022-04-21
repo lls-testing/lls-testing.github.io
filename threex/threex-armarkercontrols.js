@@ -20,7 +20,7 @@ ARjs.MarkerControls = THREEx.ArMarkerControls = function(context, object3d, para
 		// change matrix mode - [modelViewMatrix, cameraTransformMatrix]
 		changeMatrixMode : 'modelViewMatrix',
 		// minimal confidence in the marke recognition - between [0, 1] - default to 1
-		minConfidence: 0.33,
+		minConfidence: 1,
 		smooth: true,
 		  // number of matrices to smooth tracking over, more = smoother but slower follow
 		  smoothCount: 300,
