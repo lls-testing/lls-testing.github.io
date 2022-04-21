@@ -162,6 +162,19 @@ function animate()
 	update();
 	render();
 }
+arMarkerControls.addEventListener(
+  "markerFound",
+  function () {
+    document.getElementById('video').play();
+  }.bind(this)
+);
+
+arMarkerControls.addEventListener(
+  "markerLost",
+  function () {
+     document.getElementById('video').pause();
+  }.bind(this)
+);
 
 </script>
 
