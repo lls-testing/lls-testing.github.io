@@ -140,6 +140,12 @@ function initialize()
 	offset.add(mesh1);
 	
 	markerRoot1.add( offset );
+	
+	const arController = arToolkitContext.arController;
+
+	arController.addEventListener("getMarker", (evt) => {
+        console.log("onMarkerFound!!");
+	});
 }
 
 
@@ -164,15 +170,6 @@ function animate()
 	update();
 	render();
 }
-	
-const arController = arToolkitContext.arController;
-
-arController.addEventListener("getMarker", (evt) => {
-    const markerType = evt.data.type;
-    const patternType = 0;
-
-    console.log("onMarkerFound!!");
-});
 </script>
 
 </body>
