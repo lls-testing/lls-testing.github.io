@@ -28,7 +28,7 @@
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
-<video id="video" loop crossOrigin="anonymous" webkit-playsinline style="display:none">
+<video id="video" loop muted autoplay crossOrigin="anonymous" webkit-playsinline style="display:none">
 	<source src="video/donpasquale.m4v">
 </video>
 	
@@ -184,7 +184,7 @@
 
 	function videoPlay()
 	{
-		document.getElementById('video').play();
+		document.getElementById('video').muted=false;
 		document.getElementById('button').style.visibility = "hidden";
 	}
 	</script>
