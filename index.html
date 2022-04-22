@@ -14,6 +14,16 @@
 	<script src="threex/threex-armarkercontrols.js"></script>
 </head>
 
+<style>
+	button{
+	    /*Change the width as much as you like, but make sure 
+	    margin-left and margin-right + width = 100%*/
+	    width:50%;
+	    margin-left:25%;
+	    margin-right:25%;
+	}
+</style>
+
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
 <video id="video" loop crossOrigin="anonymous" webkit-playsinline style="display:none">
@@ -23,7 +33,7 @@
 <image id="play">
 	<source src="assets/play.png">
 </image>
-	<button type="button" id="button" onclick="videoPlay()">Play!</button>		
+	<button type="button" id="button" onclick="videoPlay()" style="">Play!</button>		
 	<!-- 
 	  Example created by Lee Stemkoski: https://github.com/stemkoski
 	  Based on the AR.js library and examples created by Jerome Etienne: https://github.com/jeromeetienne/AR.js/
