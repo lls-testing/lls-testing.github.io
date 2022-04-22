@@ -145,6 +145,8 @@ function initialize()
 
 	let video = document.getElementById( 'video' );
 	let texture = new THREE.VideoTexture( video );
+	
+	document.getElementById('video').play();
 
 	texture.minFilter = THREE.LinearFilter;
 	texture.magFilter = THREE.LinearFilter;
