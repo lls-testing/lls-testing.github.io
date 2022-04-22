@@ -224,12 +224,6 @@ ARjs.MarkerControls.prototype._initArtoolkit = function(){
 				onMarkerFound(event)
 			}
 		})
-		arController.addEventListener('markerFound',function(event){
-			playVideo();
-		}
-	        arController.addEventListener('markerLost',function(event){
-			pauseVideo();
-		}
 	}
 
 	function onMarkerFound(event){
@@ -239,12 +233,6 @@ ARjs.MarkerControls.prototype._initArtoolkit = function(){
 
 		var modelViewMatrix = new THREE.Matrix4().fromArray(event.data.matrix)
 		_this.updateWithModelViewMatrix(modelViewMatrix)
-	}
-	function pauseVideo(){
-		console.log('Marker lost');
-	}
-	function playVideo(){
-		console.log('Marker Found');
 	}
 }
 
