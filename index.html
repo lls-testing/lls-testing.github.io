@@ -164,6 +164,15 @@ function animate()
 	update();
 	render();
 }
+	
+const arController = document.querySelector("a-scene").systems.arjs._arSession.arContext.arController;
+
+arController.addEventListener("getMarker", (evt) => {
+    const markerType = evt.data.type;
+    const patternType = 0;
+
+    console.log("onMarkerFound!!");
+});
 </script>
 
 </body>
