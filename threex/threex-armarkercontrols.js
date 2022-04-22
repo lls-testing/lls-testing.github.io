@@ -224,11 +224,15 @@ ARjs.MarkerControls.prototype._initArtoolkit = function(){
 				onMarkerFound(event)
 			}
 		})
-
+		arController.addEventListener('markerFound',function(event){
+			playVideo();
+		}
+	        arController.addEventListener('markerLost',function(event){
+			pauseVideo();
+		}
 	}
 
 	function onMarkerFound(event){
-		console.log('Marker Found');
 		// honor his.parameters.minConfidence
 		if( event.data.type === artoolkit.PATTERN_MARKER && event.data.marker.cfPatt < _this.parameters.minConfidence )	return
 		if( event.data.type === artoolkit.BARCODE_MARKER && event.data.marker.cfMatt < _this.parameters.minConfidence )	return
@@ -236,8 +240,11 @@ ARjs.MarkerControls.prototype._initArtoolkit = function(){
 		var modelViewMatrix = new THREE.Matrix4().fromArray(event.data.matrix)
 		_this.updateWithModelViewMatrix(modelViewMatrix)
 	}
-	function onMarkerLost(event){
+	function pauseVideo(){
 		console.log('Marker lost');
+	}
+	function playVideo(){
+		console.log('Marker Found');
 	}
 }
 
