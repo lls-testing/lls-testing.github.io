@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	<title>Hello, world!</title>
+	<title>Demoanwendung</title>
 	<!-- include three.js library -->
 	<script src='js/three.js'></script>
 	<!-- include jsartookit -->
@@ -164,20 +164,6 @@ function animate()
 	update();
 	render();
 }
-markerControls1.addEventListener(
-  "markerFound",
-  function () {
-    document.getElementById('video').play();
-  }.bind(this)
-);
-
-markerControls1.addEventListener(
-  "markerLost",
-  function () {
-	console.log('found');
-     document.getElementById('video').pause();
-  }.bind(this)
-);
 
 </script>
 
