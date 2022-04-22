@@ -46,7 +46,6 @@
 		this.transform_mat = new Float32Array(16);
 
 		this.canvas = document.createElement('canvas');
-		this.canvas.setAttribute("class", "canvas");
 		this.canvas.width = w;
 		this.canvas.height = h;
 		this.ctx = this.canvas.getContext('2d');
