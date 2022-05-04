@@ -35,6 +35,18 @@
     width: 4em;
     height: 4em;
   }
+	
+  .start-ar-screen{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
 </style>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
@@ -43,9 +55,7 @@
 	<source src="video/donpasquale.m4v">
 </video>
 		
-<div class="buttons" id="button">
-  <img src="assets/speakerIcon.png" class="mute-button" type="button" onclick="videoPlay()" />
-</div>
+<div class="startARScreen" id="button" class="start-ar-screen" type="button" onclick="videoPlay()"></div>
 
 <script>
 
