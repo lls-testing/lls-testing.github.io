@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	<title>Demoanwendung1.1</title>
+	<title>Demoanwendung1.2</title>
 	<!-- include three.js library -->
 	<script src='js/three.js'></script>
 	<!-- include jsartookit -->
@@ -16,10 +16,13 @@
 
 <style>
   .mute-button {
-    padding: 0.25em;
-    border: none;
     background: white;
     color: black;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+  }
+  .buttons {
     height:100%;
     width:100%;
     overflow:hidden;
@@ -32,8 +35,8 @@
 	<source src="video/donpasquale.m4v">
 </video>
 		
-<div class="buttons" id="button">
-  <img src="assets/speakerIcon.png" class="mute-button" type="button" onclick="videoPlay()" />
+<div class="buttons">
+  <img src="assets/speakerIcon.png" class="mute-button" onclick="videoPlay()" />
 </div>
 
 <script>
